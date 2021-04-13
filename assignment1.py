@@ -4,6 +4,51 @@ import numpy as np
 import numpy.linalg as npl
 import scipy.linalg as spl
 
+## Sizing
+M = 3
+N = 2
+print("M:")
+print(M)
+print("N:") 
+print(N)
+## Matricies
+def defineMatricies():
+    A = np.array([[1,2],[3,4],[5,6]])
+    B = np.array([[1,2],[3,4]])
+    X = np.array([5,6])
+    return A,B,X
+[A,B,X] = defineMatricies() # Call definition
+print("A:")
+print(A)
+print(f" and it's shape is {A.shape}")
+print("B:") 
+print(B)
+print(f" and it's shape is {B.shape}")
+print("X:")
+print(X)
+print(f" and it's shape is {X.shape}")
+
+
+# Problem 1
+print("\nProblem 1\n")
+### a
+try:
+    print("A x B:")
+    cross = np.cross(A,B)
+    print(cross)
+    print(f"and it's shape is {cross.shape}")
+except:
+    print("is impossible due to mismatched dimensions")
+
+try:
+    print("B x A:")
+    cross = np.cross(B,A)
+    print(cross)
+    print(f"and it's shape is {cross.shape}")
+except:
+    print("is impossible due to mismatched dimensions")
+
+### b
 # Shamelessly stolen code from https://math.stackexchange.com/questions/3073083/how-to-reduce-matrix-into-row-echelon-form-in-numpy/3073117#3073117
 def row_echelon(MatrixA):
     """ Return Row Echelon Form of matrix MatrixA """
@@ -44,76 +89,44 @@ def row_echelon(MatrixA):
     # we add first row and first (zero) column, and return
     return np.vstack([MatrixA[:1], np.hstack([MatrixA[1:,:1], MatrixB]) ])
 
-## Sizing
-M = 3
-N = 2
-print("M:")
-print(M)
-print("N:") 
-print(N)
-## Matricies
-A = np.array([[1,2],[3,4],[5,6]])
-print("A:")
-print(A)
-print(f" and it's shape is {A.shape}")
-B = np.array([[1,2],[3,4]])
-print("B:") 
-print(B)
-print(f" and it's shape is {B.shape}")
-X = np.array([5,6])
-print("X:")
-print(X)
-print(f" and it's shape is {X.shape}")
-
-
-
-### a
-try:
-    print("A x B:")
-    print(np.cross(A,B))
-    print(f"and it's shape is {np.dot(A,B).shape}")
-except:
-    print("is impossible due to mismatched dimensions")
-
-try:
-    print("B x A:")
-    print((np.cross(B,A)))
-    print(f"and it's shape is {np.dot(B,A).shape}")
-except:
-    print("is impossible due to mismatched dimensions")
-
-### b
 print("Row Echelon of A:")
-print(row_echelon(A))
-print(f" and it's shape is {row_echelon(A).shape}")
+RE = row_echelon(A)
+print(RE)
+print(f" and it's shape is {RE.shape}")
 
 print("Row Echelon of B:")
-print(row_echelon(B))
-print(f" and it's shape is {row_echelon(B).shape}")
+RE = row_echelon(B)
+print(RE)
+print(f" and it's shape is {RE.shape}")
 
 ### c
-A = np.array([[1,2],[3,4],[5,6]])
-B = np.array([[1,2],[3,4]])
+[A,B,X] = defineMatricies() # Call definition
 
 print("Upper of A:")
-print(np.triu(A,1))
-print(f" and it's shape is {np.triu(A,1)}")
+UP = np.triu(A,1)
+print(UP)
+print(f" and it's shape is {UP.shape}")
 print("Lower of A:")
-print(np.tril(A,-1))
-print(f" and it's shape is {np.tril(A,-1)}")
+LO = np.tril(A,-1)
+print(LO)
+print(f" and it's shape is {LO.shape}")
 print("Diagonal of A:")
-print(np.tril(np.triu(A)))
-print(f" and it's shape is {np.tril(np.triu(A))}")
+DI= np.tril(np.triu(A))
+print(DI)
+print(f" and it's shape is {DI.shape}")
 
 print("Upper of B:")
-print(np.triu(B,1))
-print(f" and it's shape is {np.triu(B,1)}")
+UP = np.triu(B,1)
+print(UP)
+print(f" and it's shape is {UP.shape}")
 print("Lower of B:")
-print(np.tril(B,-1))
-print(f" and it's shape is {np.tril(B,-1)}")
+LO = np.tril(B,-1)
+print(LO)
+print(f" and it's shape is {LO.shape}")
 print("Diagonal of B:")
-print(np.tril(np.triu(B)))
-print(f" and it's shape is {np.tril(np.triu(B))}")
+DI= np.tril(np.triu(B))
+print(DI)
+print(f" and it's shape is {DI.shape}")
 
 ### d
 print("Rank of A:")
@@ -123,65 +136,137 @@ print("Rank of B:")
 print(npl.matrix_rank(B))
 
 ### e
-A = np.array([[1,2],[3,4],[5,6]])
-B = np.array([[1,2],[3,4]])
+[A,B,X] = defineMatricies() # Call definition
 
 print("Null of A:")
-print(spl.null_space(A))
+NS = spl.null_space(A)
+print(NS)
+print(f" and it's shape is {NS.shape}")
 
 print("Null of B:")
-print(spl.null_space(B))
+NS = spl.null_space(B)
+print(NS)
+print(f" and it's shape is {NS.shape}")
 
 ### f
 print("Transpose of A:")
-print(np.transpose(A))
+TP = np.transpose(A)
+print(TP)
+print(f" and it's shape is {TP.shape}")
 
 print("Transpose of B:")
-print(np.transpose(B))
+TP = np.transpose(B)
+print(TP)
+print(f" and it's shape is {TP.shape}")
 
 ### g
-A = np.array([[1,2],[3,4],[5,6]])
-B = np.array([[1,2],[3,4]])
+[A,B,X] = defineMatricies() # Call definition
 
 try:
     print("Inverse of A:")
-    print(npl.inv(A))
+    IN=npl.inv(A)
+    print(IN)
+    print(f" and it's shape is {IN.shape}")
 except:
     print("is not possible")
 
 try:
     print("Inverse of B:")
-    print(npl.inv(B))
+    IN=npl.inv(B)
+    print(IN)
+    print(f" and it's shape is {IN.shape}")
 except:
     print("is not possible")
 
 ### h
 print("Norm of A:")
-print(npl.norm(A))
+NM=npl.norm(A)
+print(NM)
+print(f" and it's shape is {NM.shape}")
 
 print("Norm of B:")
-print(npl.norm(B))
+NM=npl.norm(B)
+print(NM)
+print(f" and it's shape is {NM.shape}")
 
 ### i
 print("Kronecker product of A & B:")
-print(np.kron(A,B))
+KP=np.kron(A,B)
+print(KP)
+print(f" and it's shape is {KP.shape}")
+
 print("Kronecker product of B & A:")
-print(np.kron(B,A))
+KP=np.kron(B,A)
+print(KP)
+print(f" and it's shape is {KP.shape}")
 
 ### j
 try:
     print("Eigen values of A:")
-    print(npl.eig(A)[0])
+    EV=npl.eig(A)[0]
+    print(EV)
+    print(f" and it's shape is {EV.shape}")
     print("Eigen vectors of A:")
-    print(npl.eig(A)[1])
+    EV=npl.eig(A)[1]
+    print(EV)
+    print(f" and it's shape is {EV.shape}")
 except:
     print("No eigen values for the the linear transformation over the real feild")
 
 try:
     print("Eigen values of B:")
-    print(npl.eig(B)[0])
+    EV=npl.eig(B)[0]
+    print(EV)
+    print(f" and it's shape is {EV.shape}")
     print("Eigen vectors of B:")
-    print(npl.eig(B)[1])
+    EV=npl.eig(B)[1]
+    print(EV)
+    print(f" and it's shape is {EV.shape}")
 except:
     print("No eigen values for the the linear transformation over the real feild")
 
+### k
+try:
+    print("Singular Value Decomposition of A:")
+    SV=npl.svd(A)[1]
+    print(SV)
+    print(f" and it's shape is {SV.shape}")
+except:
+    print("SVD computation does not converge")
+
+try:
+    print("Singular Value Decomposition of B:")
+    SV=npl.svd(B)[1]
+    print(SV)
+    print(f" and it's shape is {SV.shape}")
+except:
+    print("SVD computation does not converge")
+
+### l
+# Shamelessly stolen code from https://stackoverflow.com/questions/10871220/making-a-matrix-square-and-padding-it-with-desired-value-in-numpy
+def squarify(M,val=0):
+    (a,b)=M.shape
+    if a>b:
+        padding=((0,0),(0,a-b))
+    else:
+        padding=((0,b-a),(0,0))
+    return np.pad(M,padding,mode='constant',constant_values=val)
+
+print("Determinant of A:")
+print(npl.det(squarify(A)))
+
+print("Determinant of B:")
+print(npl.det(squarify(B)))
+
+### m
+print("V is equal to:")
+V=np.dot(B,X)
+print(V)
+print(f" and it's shape is {V.shape}")
+
+
+# Problem 2
+print("\nProblem 2\n")
+### a
+### b
+### c
