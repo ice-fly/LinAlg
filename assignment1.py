@@ -5,19 +5,22 @@ import numpy.linalg as npl
 import scipy.linalg as spl
 
 ## Sizing
-M = 3
-N = 2
+M = int(input("Enter size M: "))
+N = int(input("Enter size N: "))
 print("M:")
 print(M)
 print("N:") 
 print(N)
 ## Matricies
-def defineMatricies():
-    A = np.array([[1,2],[3,4],[5,6]])
-    B = np.array([[1,2],[3,4]])
-    X = np.array([5,6])
+Alpha = np.random.rand(M,N)
+Bravo = np.random.rand(N,N)
+Xray = np.random.rand(N,1)
+def defineMatricies(Alpha,Bravo,Xray):
+    A = Alpha
+    B = Bravo
+    X = Xray
     return A,B,X
-[A,B,X] = defineMatricies() # Call definition
+[A,B,X] = defineMatricies(Alpha,Bravo,Xray) # Call definition
 print("A:")
 print(A)
 print(f" and it's shape is {A.shape}")
@@ -100,7 +103,7 @@ print(RE)
 print(f" and it's shape is {RE.shape}")
 
 ### c
-[A,B,X] = defineMatricies() # Call definition
+[A,B,X] = defineMatricies(Alpha,Bravo,Xray) # Call definition
 
 print("Upper of A:")
 UP = np.triu(A,1)
@@ -136,7 +139,7 @@ print("Rank of B:")
 print(npl.matrix_rank(B))
 
 ### e
-[A,B,X] = defineMatricies() # Call definition
+[A,B,X] = defineMatricies(Alpha,Bravo,Xray) # Call definition
 
 print("Null of A:")
 NS = spl.null_space(A)
@@ -160,7 +163,7 @@ print(TP)
 print(f" and it's shape is {TP.shape}")
 
 ### g
-[A,B,X] = defineMatricies() # Call definition
+[A,B,X] = defineMatricies(Alpha,Bravo,Xray) # Call definition
 
 try:
     print("Inverse of A:")
@@ -268,5 +271,53 @@ print(f" and it's shape is {V.shape}")
 # Problem 2
 print("\nProblem 2\n")
 ### a
+print("Identity (NxN):")
+ID=np.identity(N)
+print(ID)
+print(f" and it's shape is {ID.shape}")
 ### b
+print("Zeros (NxN):")
+ZR=np.zeros((N, N))
+print(ZR)
+print(f" and it's shape is {ZR.shape}")
+### c
+print("Block Diagonal of A & B:")
+BD=spl.block_diag(A,B)
+print(BD)
+print(f" and it's shape is {BD.shape}")
+
+# Problem 3
+print("\nProblem 3\n")
+### a
+A = []
+for i in range(0, N):
+    B = []
+    for j in range(0, N):
+        if ((i+j+1)%N==0):
+            B.append(1)
+        else:
+            B.append(0)
+    A.append(B)
+A = np.matrix(A)
+print(A)
+print(f" and it's shape is {A.shape}")
+
+### b
+A = []
+for i in range(0, N):
+    B = []
+    C = np.random.randint(0,N)
+    for j in range(0, N):
+        if (j==i):
+            B.append(1)
+        else:
+            B.append(0)
+    A.append(B)
+A = np.matrix(A)
+for i in range(0, N):
+    if bool(np.random.randint(0,2)):
+        A[:, [0, i]] = A[:, [i, 0]]
+print(A)
+print(f" and it's shape is {A.shape}")
+
 ### c
