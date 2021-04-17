@@ -10,14 +10,18 @@ M = int(input("Enter size M: "))
 N = int(input("Enter size N: "))
 A = np.random.rand(N,N)
 B = np.random.rand(M,N)
+print("A:")
+print(A)
+print(f" and it's shape is {A.shape}")
+print("B:") 
+print(B)
+print(f" and it's shape is {B.shape}")
 X_one = npl.solve(A,B)
 print("Numpy Solve")
 print(X_one)
 print(f" and it's shape is {X_one.shape}")
 
 ### Old solve
-
-# Shamelessly stolen code from https://math.stackexchange.com/questions/3073083/how-to-reduce-matrix-into-row-echelon-form-in-numpy/3073117#3073117
 def row_echelon(MatrixA):
     """ Return Row Echelon Form of matrix MatrixA """
 

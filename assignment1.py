@@ -38,7 +38,8 @@ try:
     cross = np.cross(A,B)
     print(cross)
     print(f"and it's shape is {cross.shape}")
-except:
+except Exception as e:
+    print(e)
     print("is impossible due to mismatched dimensions")
 
 try:
@@ -46,7 +47,8 @@ try:
     cross = np.cross(B,A)
     print(cross)
     print(f"and it's shape is {cross.shape}")
-except:
+except Exception as e:
+    print(e)
     print("is impossible due to mismatched dimensions")
 input("")
 
@@ -175,7 +177,8 @@ try:
     IN=npl.inv(A)
     print(IN)
     print(f" and it's shape is {IN.shape}")
-except:
+except Exception as e:
+    print(e)
     print("is not possible")
 
 try:
@@ -183,7 +186,8 @@ try:
     IN=npl.inv(B)
     print(IN)
     print(f" and it's shape is {IN.shape}")
-except:
+except Exception as e:
+    print(e)
     print("is not possible")
 input("")
 
@@ -224,7 +228,8 @@ try:
     EV=npl.eig(A)[1]
     print(EV)
     print(f" and it's shape is {EV.shape}")
-except:
+except Exception as e:
+    print(e)
     print("No eigen values for the the linear transformation over the real feild")
 
 try:
@@ -236,7 +241,8 @@ try:
     EV=npl.eig(B)[1]
     print(EV)
     print(f" and it's shape is {EV.shape}")
-except:
+except Exception as e:
+    print(e)
     print("No eigen values for the the linear transformation over the real feild")
 input("")
 
@@ -247,7 +253,8 @@ try:
     SV=npl.svd(A)[1]
     print(SV)
     print(f" and it's shape is {SV.shape}")
-except:
+except Exception as e:
+    print(e)
     print("SVD computation does not converge")
 
 try:
@@ -255,7 +262,8 @@ try:
     SV=npl.svd(B)[1]
     print(SV)
     print(f" and it's shape is {SV.shape}")
-except:
+except Exception as e:
+    print(e)
     print("SVD computation does not converge")
 input("")
 
