@@ -1,3 +1,3 @@
-# Some Python for a Linear Algebra class
+# Some Python for a Math class
+ERAU MA348 - Dr Perera
 ERAU MA432 - Dr Perera
-Sub-Branches for assignments
